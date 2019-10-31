@@ -1,14 +1,11 @@
 # To run this script :
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/christophe238/configuration/master/mac/setup.sh)"
+echo "While this script will run here are some ideas to run in the background:"
+echo "Install quiver for taking notes from app store"
+echo "..."
 
-# Configure folder for self downloading
-mkdir ~/work
-git clone https://github.com/christophe238/configuration.git ~/work/configuration
-echo "install xcode before"
-echo "install dashlane"
+echo "Install xcode"
 echo "make sure mac 10.14+ is installed"
-
-
 # Setup brew
 # requires password
 echo "Installing Homebrew"
@@ -17,6 +14,9 @@ echo "This step will require password"
 brew cask install google-chrome
 brew cask install dashlane
 
+# Configure folder for self downloading
+mkdir ~/work
+git clone https://github.com/christophe238/configuration.git ~/work/configuration
 
 #zsh installation and configuration
 echo "Installing ZSH"
