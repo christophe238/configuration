@@ -1,54 +1,72 @@
+# To run this script :
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/christophe238/configuration/master/mac/setup.sh)"
+
+# Configure folder for self downloading
+mkdir ~/work
+git clone https://github.com/christophe238/configuration.git ~/work/configuration
 echo "install xcode before"
 echo "install dashlane"
 echo "make sure mac 10.14+ is installed"
 
 
-#Setup brew (for nodejs/nvm)
+# Setup brew
 # requires password
+echo "Installing Homebrew"
+echo "This step will require password"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew cask install google-chrome
+brew cask install dashlane
 
-
-curl -o iTerm2.zip https://iterm2.com/downloads/stable/iTerm2-3_3_6.zip
-unzip iTerm2.zip
-rm iTerm2.zip
-mv iTerm.app /Applications/
 
 #zsh installation and configuration
+echo "Installing ZSH"
 brew install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+
 brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
-ln -s ~/work/configuration/mac/oh-my-zsh/custom ~/.oh-my-zsh/custom
+mv ~/.oh-my-zsh/custom ~/.oh-my-zsh/old-custom
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/work/configuration/mac/oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/work/configuration/mac/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/romkatv/powerlevel10k.git ~/work/configuration/mac/oh-my-zsh/custom/themes/powerlevel10k
+ln -sf ~/work/configuration/mac/oh-my-zsh/custom ~/.oh-my-zsh/custom
+ln -sf ~/work/configuration/mac/oh-my-zsh/.zshrc ~/.zshrc
 
-curl -o vscode.zip https://az764295.vo.msecnd.net/stable/6ab598523be7a800d7f3eb4d92d7ab9a66069390/VSCode-darwin-stable.zip
-unzip vscode.zip
-rm vscode.zip
-mv Visual\ Studio\ Code.app/ /Applications/
+# Downloading and installing applications
+echo "Downloading and installing tools and applications"
 
-curl -o sourcetree.zip https://product-downloads.atlassian.com/software/sourcetree/ga/Sourcetree_3.2.1_225.zip
-unzip sourcetree.zip
-rm sourcetree.zip
-mv Sourcetree.app /Applications/
+brew cask install iterm2
+echo "Downloading material-design-colors theme for iTerm which will need to be manually installed"
+curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
+echo "Setting up nvm"
+mkdir ~/.nvm
+brew install nvm
+echo "Installing nodeJS 12 LTS"
+nvm install 12
+echo "Installing necessary "
+npm i -g bunyan grunt gulp typescript
+
+echo "Setting the rest of the apps"
+brew cask install visual-studio-code
+brew cask install sourcetree
+brew cask install firefox
+brew install mongodb
+brew cask install cyberduck
+brew cask install adobe-acrobat-reader
+brew cask install microsoft-office
+brew cask install skype
+brew cask install slack
+brew cask install spotify
+brew cask install docker
+
 
 # Vim configure NerdTree: https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
-
-
-# install nvm
-brew install nvm
-mkdir ~/.nvm
-# in .bash_profile
-# ```
-# export NVM_DIR=~/.nvm
-# source $(brew --prefix nvm)/nvm.sh
-# ```
-
 
 brew install python3
 # add to path if not working. CHeck link: https://programwithus.com/learn-to-code/install-python3-mac/
 
-
+echo "Looks like everything went well"
+echo "Manual steps left:"
+echo "Load material design in iterm"
+echo "Check if python3 needs to be added to path"
