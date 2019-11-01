@@ -42,8 +42,11 @@ curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/ma
 echo "Setting up nvm"
 mkdir ~/.nvm
 brew install nvm
-echo "Installing nodeJS 12 LTS"
+echo "Installing nodeJS 10 & 12 LTS"
+nvm install 10
 nvm install 12
+nvm use 10
+nvm default 10
 echo "Installing necessary "
 npm i -g bunyan grunt gulp typescript
 
@@ -66,7 +69,40 @@ brew cask install docker
 brew install python3
 # add to path if not working. CHeck link: https://programwithus.com/learn-to-code/install-python3-mac/
 
+echo "Adding application to Dock"
+brew install dockutil
+dockutil --remove Pages --no-restart
+dockutil --remove Numbers --no-restart
+dockutil --remove Keynote --no-restart
+dockutil --remove Mail --no-restart
+dockutil --remove Calendar --no-restart
+dockutil --remove Launchpad --no-restart
+dockutil --remove Notes --no-restart
+dockutil --remove Contacts --no-restart
+dockutil --remove FaceTime --no-restart
+dockutil --remove Books --no-restart
+dockutil --remove Music --no-restart
+dockutil --remove Messages --no-restart
+dockutil --remove Photos --no-restart
+dockutil --remove Reminders --no-restart
+
+dockutil --add /Applications/Dashlane.app --no-restart --label Dashlane
+dockutil --add /Applications/Google\ Chrome.app --no-restart --label Google
+dockutil --add /Applications/Firefox.app --no-restart --label Firefox
+dockutil --add /Applications/iTerm.app --no-restart --label iTerm
+dockutil --add /Applications/Sourcetree.app --no-restart --label Sourcetree
+dockutil --add /Applications/Visual\ Studio\ Code.app --label Visual
+dockutil --add /Applications/Microsoft\ Word.app --no-restart --label Word
+dockutil --add /Applications/Microsoft\ Excel.app --no-restart --label Excel
+dockutil --add /Applications/Microsoft\ Outlook.app --no-restart --label Outlook
+dockutil --add /Applications/Microsoft\ PowerPoint.app --no-restart --label PowerPoint
+dockutil --add /Applications/Microsoft\ OneNote.app --no-restart --label OneNote
+dockutil --add /Applications/Spotify.app --no-restart --label Spotify
+dockutil --add /Applications/Skype.app --no-restart --label Skype
+dockutil --add /Applications/Slack.app --no-restart --label Slack
+
 echo "Looks like everything went well"
 echo "Manual steps left:"
 echo "Load material design in iterm"
 echo "Check if python3 needs to be added to path"
+
