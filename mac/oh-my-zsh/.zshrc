@@ -29,26 +29,26 @@ POWERLEVEL9K_HOME_FOLDER_ABBREVIATION=""
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
 
 plugins=(
-  autojump
-  brew
+ # autojump
+ # brew
   colorize
   dirhistory
-  docker
-  docker-compose
+ # docker
+ # docker-compose
   git
   grunt
   gulp
   history
   history-substring-search
   iterm2
-  jsontools
-  mercurial
+ # jsontools
+ # mercurial
   npm
   nvm
   pass
   per-directory-history
   sudo
-  timer
+ # timer
   vi-mode
   vim-interaction
   vscode
