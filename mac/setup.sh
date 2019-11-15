@@ -62,7 +62,10 @@ brew cask install skype
 brew cask install slack
 brew cask install spotify
 brew cask install docker
-
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8 
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk11
+brew install maven
 
 # Vim configure NerdTree: https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
 

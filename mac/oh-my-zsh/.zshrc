@@ -1,3 +1,5 @@
+export ANDROID_SDK=/Users/cmarchad/Library/Android/sdk
+export PATH=/Users/cmarchad/Library/Android/sdk/platform-tools:$PATH
 # ZSH configuration
 TRAPWINCH() {
   zle && { zle reset-prompt; zle -R }
@@ -27,7 +29,6 @@ POWERLEVEL9K_HOME_FOLDER_ABBREVIATION=""
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
 
 plugins=(
-  alias-finder
   autojump
   brew
   colorize
@@ -41,19 +42,15 @@ plugins=(
   history-substring-search
   iterm2
   jsontools
-  macports
   mercurial
   npm
   nvm
   pass
   per-directory-history
-  pip
-  python
   sudo
   timer
   vi-mode
   vim-interaction
-  virtualenv
   vscode
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -63,3 +60,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '/Users/cmarchad/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cmarchad/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+#if [ -f '/Users/cmarchad/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cmarchad/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
